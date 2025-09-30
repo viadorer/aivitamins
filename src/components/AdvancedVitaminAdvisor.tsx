@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Clock, Sun, Moon, Utensils, AlertCircle, CheckCircle, Info, Calendar, Droplets, Shield, Brain, Heart, Activity, Users, ChevronDown, ChevronUp, TrendingUp, Zap, Eye, Bone, Dna, TestTube, Target, Star } from 'lucide-react';
+import { Clock, AlertCircle, CheckCircle, Calendar, Brain, Heart, Activity, Users, TrendingUp, Zap, Dna, TestTube, Target, Star } from 'lucide-react';
 
 const AdvancedVitaminAdvisor = () => {
   const [selectedSupplements, setSelectedSupplements] = useState<string[]>([]);
   const [currentTime, setCurrentTime] = useState(new Date());
   const [activeTab, setActiveTab] = useState('selection');
-  const [expandedSections, setExpandedSections] = useState({});
   const [userProfile, setUserProfile] = useState({
     age: 30,
     gender: 'female',
@@ -22,7 +21,6 @@ const AdvancedVitaminAdvisor = () => {
   });
 
   const [symptomTracker, setSymptomTracker] = useState<Record<string, number>>({});
-  const [progressTracking, setProgressTracking] = useState<Record<string, any>>({});
 
   // Persisted state: load from localStorage on mount
   useEffect(() => {
@@ -488,12 +486,6 @@ const AdvancedVitaminAdvisor = () => {
   const schedule = generateOptimalSchedule();
   const labRecommendations = generateLabRecommendations();
 
-  const toggleSection = (section) => {
-    setExpandedSections(prev => ({
-      ...prev,
-      [section]: !prev[section]
-    }));
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-green-50 p-4">
